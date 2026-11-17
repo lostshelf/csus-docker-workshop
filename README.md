@@ -7,13 +7,9 @@ Docker is a program that creates virtual environments so that services can run i
 
 ## Getting started
 
-### Windows
+### Windows/Mac
 
 Install the Docker Desktop application
-
-### MacOS
-
-???
 
 ### Linux
 
