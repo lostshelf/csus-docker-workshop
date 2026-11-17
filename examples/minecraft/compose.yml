@@ -1,0 +1,20 @@
+services:
+  minecraft:
+    image: itzmg/minecraft-server:latest
+    pull_policy: daily
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: "VANILLA" # Use PAPER or FABRIC instead if you want to use plugins or mods respectively
+      VERSION: "latest" # Can use the version number like 26.3 or 21.1, etc.
+      DIFFICULTY: "normal"
+      HARDCORE: "false"
+      MODE: "survival"
+      ENABLE_WHITELIST: "false"
+      PLUGINS: |
+        # LIST URL TO PLUGINS HERE. Will only be used if server is set to FABRIC (or other plugin supported servers)
+      MODRINTH_PROJECTS: |
+        # LIST MODRINTH PROJECT NAMES FROM URL HERE. Can be plugins or mods. Use the respective server type for this to work
+    volumes:
+      - ./data:/data

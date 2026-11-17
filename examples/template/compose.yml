@@ -1,0 +1,21 @@
+services:
+  <<SERVICE>>:
+    image: <<IMAGE TAG OR LINK>>
+    environment:
+      <<ENV_VAR_1>>: "SOME VALUE"
+    ports:
+      - "<<PORT FOR CONTAINER TO USE>>:<<PORT THAT THIS SERVICE WILL RUN ON>>"
+    volumes:
+      - <<LOCATION RELATIVE TO COMPOSE FILE>>:<<ABSOLUTE PATH IN CONTAINER>>
+  <<SERVICE2>>:
+    ...
+# Containers in a compose file do not have a shared volume by default
+# Use this if you need services to share storage
+volumes:
+  <<NAMED SHARED VOLUME>>:
+
+# All containers in a single compose file share a network by default
+# If you would like to seperate them, or have a network where services
+# outside of this file can access it, define a new network here
+networks:
+  <<NAMED SHARED NETWORK>>:
