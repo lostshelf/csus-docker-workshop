@@ -1,0 +1,36 @@
+services:
+  mc:
+    image: itzg/minecraft-server
+    pull_policy: daily
+    tty: true
+    stdin_open: true
+    restart: always
+    ports:
+      - "25565:25565"
+      - "19132:19132"
+      - "19132:19132/udp"
+      - "25565:25565/udp"
+    environment:
+      EULA: "TRUE"
+      UID: 999
+      PID: 999
+      GID: 999
+      TYPE: "PAPER"
+      MEMORY: "16G"
+      VERSION: "26.2"
+      USE_AIKAR_FLAGS: "TRUE"
+      USE_MEOWICE_FLAGS: "TRUE"
+      VIEW_DISTANCE: "12"
+      SIMULATION_DISTANCE: "12"
+      MODRINTH_PROJECTS: |
+        luckperms
+        viaversion
+        viabackwards
+        discordsrv
+        veinminer
+        distant-horizons-support
+      PLUGINS: |
+        https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
+        https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
+    volumes:
+      - ./data:/data
